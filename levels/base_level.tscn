@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy3hxlpgqb037"]
+[gd_scene load_steps=7 format=3 uid="uid://cy3hxlpgqb037"]
 
 [ext_resource type="PackedScene" uid="uid://bdl7lwdjaevqu" path="res://gridmaps/floor.tscn" id="1_jbgo1"]
 [ext_resource type="PackedScene" uid="uid://xbtwa0b7bbgq" path="res://gridmaps/wall.tscn" id="2_73x5n"]
 [ext_resource type="PackedScene" uid="uid://dbngq5182uet3" path="res://gridmaps/cube.tscn" id="3_8hfjo"]
 [ext_resource type="PackedScene" uid="uid://6jev7y8m46us" path="res://gridmaps/table.tscn" id="4_0q6w5"]
 [ext_resource type="PackedScene" uid="uid://8m4hv0d2bnu7" path="res://gridmaps/pallet.tscn" id="5_ew6ao"]
+[ext_resource type="PackedScene" uid="uid://d3dyuu7v727ic" path="res://gridmaps/pillar.tscn" id="6_x35hb"]
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -19,3 +20,5 @@
 [node name="Table" parent="Gridmaps" instance=ExtResource("4_0q6w5")]
 
 [node name="Pallet" parent="Gridmaps" instance=ExtResource("5_ew6ao")]
+
+[node name="Pillar" parent="Gridmaps" instance=ExtResource("6_x35hb")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3dyuu7v727ic"]
+
+[ext_resource type="MeshLibrary" uid="uid://cm1pwkqt3ltpx" path="res://resources/gridmap_libraries/pillar.tres" id="1_6d2y2"]
+
+[node name="Pillar" type="GridMap"]
+mesh_library = ExtResource("1_6d2y2")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
