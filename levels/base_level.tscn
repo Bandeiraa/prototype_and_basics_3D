@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy3hxlpgqb037"]
+
+[ext_resource type="PackedScene" uid="uid://bdl7lwdjaevqu" path="res://gridmaps/floor.tscn" id="1_jbgo1"]
+
+[node name="BaseLevel" type="Node3D"]
+
+[node name="Gridmaps" type="Node3D" parent="."]
+
+[node name="Floor" parent="Gridmaps" instance=ExtResource("1_jbgo1")]
