@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://8m4hv0d2bnu7"]
+
+[ext_resource type="MeshLibrary" uid="uid://c0ve5sxm6vivu" path="res://resources/gridmap_libraries/pallet.tres" id="1_awrit"]
+
+[node name="Pallet" type="GridMap"]
+mesh_library = ExtResource("1_awrit")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
