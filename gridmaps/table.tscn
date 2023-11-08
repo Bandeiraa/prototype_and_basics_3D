@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://6jev7y8m46us"]
+
+[ext_resource type="MeshLibrary" uid="uid://cnjl60alwjbxh" path="res://resources/gridmap_libraries/table.tres" id="1_bbanc"]
+
+[node name="Table" type="GridMap"]
+mesh_library = ExtResource("1_bbanc")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false

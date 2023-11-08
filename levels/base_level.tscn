@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy3hxlpgqb037"]
+[gd_scene load_steps=5 format=3 uid="uid://cy3hxlpgqb037"]
 
 [ext_resource type="PackedScene" uid="uid://bdl7lwdjaevqu" path="res://gridmaps/floor.tscn" id="1_jbgo1"]
 [ext_resource type="PackedScene" uid="uid://xbtwa0b7bbgq" path="res://gridmaps/wall.tscn" id="2_73x5n"]
 [ext_resource type="PackedScene" uid="uid://dbngq5182uet3" path="res://gridmaps/cube.tscn" id="3_8hfjo"]
+[ext_resource type="PackedScene" uid="uid://6jev7y8m46us" path="res://gridmaps/table.tscn" id="4_0q6w5"]
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -13,3 +14,5 @@
 [node name="Wall" parent="Gridmaps" instance=ExtResource("2_73x5n")]
 
 [node name="Cube" parent="Gridmaps" instance=ExtResource("3_8hfjo")]
+
+[node name="Table" parent="Gridmaps" instance=ExtResource("4_0q6w5")]
