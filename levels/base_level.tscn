@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy3hxlpgqb037"]
+[gd_scene load_steps=9 format=3 uid="uid://cy3hxlpgqb037"]
 
 [ext_resource type="PackedScene" uid="uid://bdl7lwdjaevqu" path="res://gridmaps/floor.tscn" id="1_jbgo1"]
 [ext_resource type="PackedScene" uid="uid://xbtwa0b7bbgq" path="res://gridmaps/wall.tscn" id="2_73x5n"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8m4hv0d2bnu7" path="res://gridmaps/pallet.tscn" id="5_ew6ao"]
 [ext_resource type="PackedScene" uid="uid://d3dyuu7v727ic" path="res://gridmaps/pillar.tscn" id="6_x35hb"]
 [ext_resource type="PackedScene" uid="uid://dasldisl2rfvv" path="res://gridmaps/slope.tscn" id="7_jv81a"]
+[ext_resource type="PackedScene" uid="uid://cvlchjedw5vhg" path="res://gridmaps/stair.tscn" id="8_7cn5y"]
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -25,3 +26,5 @@
 [node name="Pillar" parent="Gridmaps" instance=ExtResource("6_x35hb")]
 
 [node name="Slope" parent="Gridmaps" instance=ExtResource("7_jv81a")]
+
+[node name="Stair" parent="Gridmaps" instance=ExtResource("8_7cn5y")]
