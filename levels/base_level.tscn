@@ -13,18 +13,101 @@
 
 [node name="Gridmaps" type="Node3D" parent="."]
 
-[node name="Floor" parent="Gridmaps" instance=ExtResource("1_jbgo1")]
+[node name="L0" type="Node3D" parent="Gridmaps"]
 
-[node name="Wall" parent="Gridmaps" instance=ExtResource("2_73x5n")]
+[node name="Floor" parent="Gridmaps/L0" instance=ExtResource("1_jbgo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="Cube" parent="Gridmaps" instance=ExtResource("3_8hfjo")]
+[node name="Cube" parent="Gridmaps/L0" instance=ExtResource("3_8hfjo")]
 
-[node name="Table" parent="Gridmaps" instance=ExtResource("4_0q6w5")]
+[node name="Table" parent="Gridmaps/L0" instance=ExtResource("4_0q6w5")]
 
-[node name="Pallet" parent="Gridmaps" instance=ExtResource("5_ew6ao")]
+[node name="Wall" parent="Gridmaps/L0" instance=ExtResource("2_73x5n")]
 
-[node name="Pillar" parent="Gridmaps" instance=ExtResource("6_x35hb")]
+[node name="Stair" parent="Gridmaps/L0" instance=ExtResource("8_7cn5y")]
 
-[node name="Slope" parent="Gridmaps" instance=ExtResource("7_jv81a")]
+[node name="Slope" parent="Gridmaps/L0" instance=ExtResource("7_jv81a")]
 
-[node name="Stair" parent="Gridmaps" instance=ExtResource("8_7cn5y")]
+[node name="Pillar" parent="Gridmaps/L0" instance=ExtResource("6_x35hb")]
+
+[node name="Pallet" parent="Gridmaps/L0" instance=ExtResource("5_ew6ao")]
+
+[node name="L1" type="Node3D" parent="Gridmaps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="Floor" parent="Gridmaps/L1" instance=ExtResource("1_jbgo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Cube" parent="Gridmaps/L1" instance=ExtResource("3_8hfjo")]
+
+[node name="Table" parent="Gridmaps/L1" instance=ExtResource("4_0q6w5")]
+
+[node name="Wall" parent="Gridmaps/L1" instance=ExtResource("2_73x5n")]
+
+[node name="Stair" parent="Gridmaps/L1" instance=ExtResource("8_7cn5y")]
+
+[node name="Slope" parent="Gridmaps/L1" instance=ExtResource("7_jv81a")]
+
+[node name="Pillar" parent="Gridmaps/L1" instance=ExtResource("6_x35hb")]
+
+[node name="Pallet" parent="Gridmaps/L1" instance=ExtResource("5_ew6ao")]
+
+[node name="L2" type="Node3D" parent="Gridmaps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="Floor" parent="Gridmaps/L2" instance=ExtResource("1_jbgo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Cube" parent="Gridmaps/L2" instance=ExtResource("3_8hfjo")]
+
+[node name="Table" parent="Gridmaps/L2" instance=ExtResource("4_0q6w5")]
+
+[node name="Wall" parent="Gridmaps/L2" instance=ExtResource("2_73x5n")]
+
+[node name="Stair" parent="Gridmaps/L2" instance=ExtResource("8_7cn5y")]
+
+[node name="Slope" parent="Gridmaps/L2" instance=ExtResource("7_jv81a")]
+
+[node name="Pillar" parent="Gridmaps/L2" instance=ExtResource("6_x35hb")]
+
+[node name="Pallet" parent="Gridmaps/L2" instance=ExtResource("5_ew6ao")]
+
+[node name="L3" type="Node3D" parent="Gridmaps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+
+[node name="Floor" parent="Gridmaps/L3" instance=ExtResource("1_jbgo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Cube" parent="Gridmaps/L3" instance=ExtResource("3_8hfjo")]
+
+[node name="Table" parent="Gridmaps/L3" instance=ExtResource("4_0q6w5")]
+
+[node name="Wall" parent="Gridmaps/L3" instance=ExtResource("2_73x5n")]
+
+[node name="Stair" parent="Gridmaps/L3" instance=ExtResource("8_7cn5y")]
+
+[node name="Slope" parent="Gridmaps/L3" instance=ExtResource("7_jv81a")]
+
+[node name="Pillar" parent="Gridmaps/L3" instance=ExtResource("6_x35hb")]
+
+[node name="Pallet" parent="Gridmaps/L3" instance=ExtResource("5_ew6ao")]
+
+[node name="L4" type="Node3D" parent="Gridmaps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+
+[node name="Floor" parent="Gridmaps/L4" instance=ExtResource("1_jbgo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Cube" parent="Gridmaps/L4" instance=ExtResource("3_8hfjo")]
+
+[node name="Table" parent="Gridmaps/L4" instance=ExtResource("4_0q6w5")]
+
+[node name="Wall" parent="Gridmaps/L4" instance=ExtResource("2_73x5n")]
+
+[node name="Stair" parent="Gridmaps/L4" instance=ExtResource("8_7cn5y")]
+
+[node name="Slope" parent="Gridmaps/L4" instance=ExtResource("7_jv81a")]
+
+[node name="Pillar" parent="Gridmaps/L4" instance=ExtResource("6_x35hb")]
+
+[node name="Pallet" parent="Gridmaps/L4" instance=ExtResource("5_ew6ao")]
