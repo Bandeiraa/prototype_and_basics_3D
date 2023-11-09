@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkx44l2vmuvhc"]
+
+[ext_resource type="Script" path="res://characters/scripts/character_arm.gd" id="1_bhobu"]
+[ext_resource type="Script" path="res://characters/scripts/base_character.gd" id="1_xvsj8"]
+
+[node name="BaseCharacter" type="CharacterBody3D" node_paths=PackedStringArray("_spring_arm_offset")]
+script = ExtResource("1_xvsj8")
+_spring_arm_offset = NodePath("SpringArmOffset")
+
+[node name="SpringArmOffset" type="Node3D" parent="." node_paths=PackedStringArray("_spring_arm")]
+script = ExtResource("1_bhobu")
+_spring_arm = NodePath("Arm3D")
+
+[node name="Arm3D" type="SpringArm3D" parent="SpringArmOffset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+spring_length = 3.0
+
+[node name="ThirdPersonCamera" type="Camera3D" parent="SpringArmOffset/Arm3D"]
+current = true
+
+[node name="Collision" type="CollisionShape3D" parent="."]

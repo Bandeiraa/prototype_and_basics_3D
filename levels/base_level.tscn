@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy3hxlpgqb037"]
+[gd_scene load_steps=13 format=3 uid="uid://cy3hxlpgqb037"]
 
 [ext_resource type="PackedScene" uid="uid://bdl7lwdjaevqu" path="res://gridmaps/floor.tscn" id="1_jbgo1"]
 [ext_resource type="PackedScene" uid="uid://xbtwa0b7bbgq" path="res://gridmaps/wall.tscn" id="2_73x5n"]
@@ -8,6 +8,20 @@
 [ext_resource type="PackedScene" uid="uid://d3dyuu7v727ic" path="res://gridmaps/pillar.tscn" id="6_x35hb"]
 [ext_resource type="PackedScene" uid="uid://dasldisl2rfvv" path="res://gridmaps/slope.tscn" id="7_jv81a"]
 [ext_resource type="PackedScene" uid="uid://cvlchjedw5vhg" path="res://gridmaps/stair.tscn" id="8_7cn5y"]
+[ext_resource type="PackedScene" uid="uid://cpqibprr3pga0" path="res://characters/scenes/gobot.tscn" id="9_maxrd"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v5ng7"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3vhmr"]
+sky_material = SubResource("ProceduralSkyMaterial_v5ng7")
+
+[sub_resource type="Environment" id="Environment_jwcge"]
+background_mode = 2
+sky = SubResource("Sky_3vhmr")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -111,3 +125,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 [node name="Pillar" parent="Gridmaps/L4" instance=ExtResource("6_x35hb")]
 
 [node name="Pallet" parent="Gridmaps/L4" instance=ExtResource("5_ew6ao")]
+
+[node name="PostProcessing" type="Node3D" parent="."]
+
+[node name="Sun" type="DirectionalLight3D" parent="PostProcessing"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
+environment = SubResource("Environment_jwcge")
+
+[node name="Gobot" parent="." instance=ExtResource("9_maxrd")]
