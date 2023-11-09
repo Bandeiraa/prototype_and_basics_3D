@@ -3,8 +3,6 @@ class_name CharacterBody
 
 const _LERP_VELOCITY: float = 0.15
 
-var _on_action: bool = false
-
 @export_category("Objects")
 @export var _character: BaseCharacter
 @export var _animation: AnimationPlayer
@@ -17,10 +15,16 @@ func apply_rotation(_velocity: Vector3) -> void:
 	)
 	
 	
+var _on_action: bool = false
+
 func animate(_velocity: Vector3) -> void:
 	if _on_action:
 		return
 		
+	_regular_animations(_velocity)
+	
+	
+func _regular_animations(_velocity: Vector3) -> void:
 	if _velocity.y != 0:
 		_vertical_animations(_velocity)
 		return
@@ -46,14 +50,3 @@ func _vertical_animations(_velocity: Vector3) -> void:
 		
 	if _velocity.y < 0:
 		_animation.play("Fall")
-		
-		
-func animate_action(_action: String) -> void:
-	_animation.play(_action)
-	_on_action = true
-	
-	
-func _on_animation_finished(_anim_name: String) -> void:
-	match _anim_name:
-		"Flip":
-			_on_action = false

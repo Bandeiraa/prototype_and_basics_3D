@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3dyuu7v727ic" path="res://gridmaps/pillar.tscn" id="6_x35hb"]
 [ext_resource type="PackedScene" uid="uid://dasldisl2rfvv" path="res://gridmaps/slope.tscn" id="7_jv81a"]
 [ext_resource type="PackedScene" uid="uid://cvlchjedw5vhg" path="res://gridmaps/stair.tscn" id="8_7cn5y"]
-[ext_resource type="PackedScene" uid="uid://cpqibprr3pga0" path="res://characters/scenes/gobot.tscn" id="9_maxrd"]
+[ext_resource type="PackedScene" uid="uid://cue3r2vxiimqg" path="res://characters/scenes/sophia.tscn" id="9_k6ssq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v5ng7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -135,4 +135,4 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
 environment = SubResource("Environment_jwcge")
 
-[node name="Gobot" parent="." instance=ExtResource("9_maxrd")]
+[node name="Sophia" parent="." instance=ExtResource("9_k6ssq")]

@@ -1,0 +1,2 @@
+extends CharacterBody
+class_name SophiaBody

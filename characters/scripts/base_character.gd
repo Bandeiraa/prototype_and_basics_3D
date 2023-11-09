@@ -4,6 +4,10 @@ class_name BaseCharacter
 var _jump_count: int = 0
 var _current_speed: float
 
+@export_category("Flags")
+@export var _can_run: bool = true
+@export var _can_flip: bool = true
+
 @export_category("Variables")
 @export var _gravity: float = 9.8
 @export var _run_speed: float = 3.5
@@ -53,7 +57,7 @@ func _move() -> void:
 	
 	
 func is_running() -> bool:
-	if Input.is_action_pressed("shift"):
+	if Input.is_action_pressed("shift") and _can_run:
 		_current_speed = _run_speed
 		return true
 		
@@ -66,5 +70,5 @@ func _jump() -> void:
 		velocity.y = _jump_speed
 		_jump_count += 1
 		
-		if _jump_count > 1:
+		if _jump_count > 1 and _can_flip:
 			_body.animate_action("Flip")

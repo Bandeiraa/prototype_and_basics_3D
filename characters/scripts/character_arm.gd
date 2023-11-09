@@ -8,7 +8,13 @@ var can_rotate: bool = true
 @export_category("Objects")
 @export var _spring_arm: SpringArm3D = null
 
+@export_category("Variables")
+@export var _camera_height: float = 2.0
+@export var _spring_length: float = 3.0
+
 func _ready() -> void:
+	_spring_arm.position.y = _camera_height
+	_spring_arm.spring_length = _spring_length
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	

@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://cpqibprr3pga0"]
 
 [ext_resource type="PackedScene" uid="uid://dkx44l2vmuvhc" path="res://characters/scenes/base_character.tscn" id="1_1f0df"]
-[ext_resource type="Script" path="res://characters/scripts/character_body.gd" id="2_ccmp4"]
 [ext_resource type="Texture2D" uid="uid://24c4qv1ferit" path="res://models/characters/gobot/gobot_gobot_diffuse.png" id="2_f3uwb"]
+[ext_resource type="Script" path="res://characters/scripts/gobot_body.gd" id="2_yk6km"]
 [ext_resource type="Texture2D" uid="uid://de2u0ppbrv7j" path="res://models/characters/gobot/gobot_gobot_roughness.png" id="3_jxi8d"]
 [ext_resource type="Texture2D" uid="uid://drpq2qsieqo1r" path="res://models/characters/gobot/gobot_gobot_normal.png" id="4_v4taw"]
 
@@ -2032,11 +2032,15 @@ radius = 0.4
 [node name="Gobot" node_paths=PackedStringArray("_body") instance=ExtResource("1_1f0df")]
 _body = NodePath("Gobot")
 
+[node name="SpringArmOffset" parent="." index="0"]
+_camera_height = 2.25
+_spring_length = 4.0
+
 [node name="Arm3D" parent="SpringArmOffset" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Gobot" type="Node3D" parent="." index="1" node_paths=PackedStringArray("_character", "_animation")]
-script = ExtResource("2_ccmp4")
+script = ExtResource("2_yk6km")
 _character = NodePath("..")
 _animation = NodePath("AnimationPlayer")
 
