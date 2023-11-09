@@ -15,5 +15,5 @@ data = {
 }
 
 [node name="Gobot" parent="." index="2"]
-_walk_speed = 3.5
 _run_speed = 5.25
+_walk_speed = 3.5
