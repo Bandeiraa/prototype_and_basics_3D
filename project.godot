@@ -44,4 +44,6 @@ move_backward={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+lights_and_shadows/directional_shadow/size=16384
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
+anti_aliasing/quality/msaa_3d=3

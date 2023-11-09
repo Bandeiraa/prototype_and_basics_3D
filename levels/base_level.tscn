@@ -10,18 +10,21 @@
 [ext_resource type="PackedScene" uid="uid://cvlchjedw5vhg" path="res://gridmaps/stair.tscn" id="8_7cn5y"]
 [ext_resource type="PackedScene" uid="uid://cue3r2vxiimqg" path="res://characters/scenes/sophia.tscn" id="9_k6ssq"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v5ng7"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_dguco"]
 
-[sub_resource type="Sky" id="Sky_3vhmr"]
-sky_material = SubResource("ProceduralSkyMaterial_v5ng7")
+[sub_resource type="Sky" id="Sky_gvqd0"]
+sky_material = SubResource("PhysicalSkyMaterial_dguco")
 
-[sub_resource type="Environment" id="Environment_jwcge"]
+[sub_resource type="Environment" id="Environment_0qmql"]
 background_mode = 2
-sky = SubResource("Sky_3vhmr")
-tonemap_mode = 2
+sky = SubResource("Sky_gvqd0")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
 glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.6, 0.2, 1, 1)
 
 [node name="BaseLevel" type="Node3D"]
 
@@ -130,9 +133,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="PostProcessing"]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 3.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="PostProcessing"]
-environment = SubResource("Environment_jwcge")
+environment = SubResource("Environment_0qmql")
 
 [node name="Sophia" parent="." instance=ExtResource("9_k6ssq")]
