@@ -14,6 +14,10 @@ config/name="prototype_and_basics_3D"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+game_data="*res://management/game_data.gd"
+
 [input]
 
 shift={
