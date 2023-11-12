@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bflt688aqasor"]
+
+[ext_resource type="PackedScene" uid="uid://cyoane2s711pe" path="res://interactables/scenes/base_door.tscn" id="1_v1rgv"]
+[ext_resource type="PackedScene" uid="uid://cr51a3gsuklks" path="res://prototypes/doors/door_a.tscn" id="2_o3lo3"]
+
+[node name="DoorA" instance=ExtResource("1_v1rgv")]
+
+[node name="Door" parent="." index="0" instance=ExtResource("2_o3lo3")]

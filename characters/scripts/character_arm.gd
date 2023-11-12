@@ -12,6 +12,9 @@ var can_rotate: bool = true
 @export var _camera_height: float = 2.0
 @export var _spring_length: float = 3.0
 
+@export var _y_min_rotation: float = 15
+@export var _y_max_rotation: float = -45
+
 func _ready() -> void:
 	_spring_arm.position.y = _camera_height
 	_spring_arm.spring_length = _spring_length
@@ -27,6 +30,6 @@ func _unhandled_input(_event) -> void:
 		_spring_arm.rotate_x(-_event.relative.y * _MOUSE_SENSIBILITY)
 		_spring_arm.rotation.x = clamp(
 			_spring_arm.rotation.x, 
-			deg_to_rad(-45), 
-			deg_to_rad(15)
+			deg_to_rad(_y_max_rotation), 
+			deg_to_rad(_y_min_rotation)
 		)

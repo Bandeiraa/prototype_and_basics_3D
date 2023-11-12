@@ -1,12 +1,15 @@
 extends CharacterBody3D
 class_name BaseCharacter
 
+var _is_dead: bool = false
+
 var _jump_count: int = 0
 var _current_speed: float
 
 @export_category("Flags")
 @export var _can_run: bool = true
 @export var _can_flip: bool = true
+@export var _fall_limit: float = -7.5
 
 @export_category("Variables")
 @export var _gravity: float = 9.8
@@ -27,6 +30,10 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	_body.animate(velocity)
 	
+	if not _is_dead and position.y < _fall_limit:
+		get_tree().reload_current_scene()
+		_is_dead = true
+		
 	if is_on_floor():
 		_jump_count = 0
 		
@@ -66,9 +73,15 @@ func is_running() -> bool:
 	
 	
 func _jump() -> void:
-	if Input.is_action_just_pressed("ui_accept") and _jump_count < 2:
-		velocity.y = _jump_speed
-		_jump_count += 1
+	if Input.is_action_just_pressed("ui_accept") and _can_flip:
+		if _jump_count < 2:
+			velocity.y = _jump_speed
+			_jump_count += 1
+			
+			if _jump_count > 1:
+				_body.animate_action("Flip")
+				
+		return
 		
-		if _jump_count > 1 and _can_flip:
-			_body.animate_action("Flip")
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = _jump_speed

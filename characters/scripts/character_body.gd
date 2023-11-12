@@ -29,7 +29,7 @@ func _regular_animations(_velocity: Vector3) -> void:
 		_vertical_animations(_velocity)
 		return
 		
-	if _velocity.x != 0:
+	if _velocity.x != 0 or _velocity.z != 0:
 		_horizontal_animations(_velocity)
 		return
 		

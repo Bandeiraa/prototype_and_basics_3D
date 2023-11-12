@@ -5,6 +5,7 @@
 
 [node name="BaseCharacter" type="CharacterBody3D" node_paths=PackedStringArray("_spring_arm_offset")]
 script = ExtResource("1_xvsj8")
+_gravity = 30.0
 _spring_arm_offset = NodePath("SpringArmOffset")
 
 [node name="SpringArmOffset" type="Node3D" parent="." node_paths=PackedStringArray("_spring_arm")]
