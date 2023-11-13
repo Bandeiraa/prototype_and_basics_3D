@@ -1,10 +1,12 @@
 extends CharacterBody3D
 class_name BaseCharacter
 
-var scene_path: String = ""
+signal reload_level
+
+var offset: Node3D = null
+var current_camera: BaseCamera = null
 
 var _is_dead: bool = false
-
 var _jump_count: int = 0
 var _current_speed: float
 
@@ -21,19 +23,27 @@ var _current_speed: float
 
 @export_category("Objects")
 @export var _body: CharacterBody
-@export var _spring_arm_offset: CharacterArm
+@export var _tpc: ThirdPersonCamera
+@export var _fpc: FirstPersonCamera
 
+func _ready() -> void:
+	_tpc.update_camera_state(false)
+	_fpc.update_camera_state(true)
+	current_camera = _fpc
+	
+	
 func _physics_process(_delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= _gravity * _delta
 		
 	_jump()
 	_move()
+	_update_camera()
 	move_and_slide()
 	_body.animate(velocity)
 	
 	if not _is_dead and position.y < _fall_limit:
-		transition_screen.fade_in(scene_path)
+		emit_signal("reload_level")
 		_is_dead = true
 		
 	if is_on_floor():
@@ -53,7 +63,7 @@ func _move() -> void:
 	).normalized()
 	
 	is_running()
-	_direction = _direction.rotated(Vector3.UP, _spring_arm_offset.rotation.y)
+	_direction = _direction.rotated(Vector3.UP, offset.rotation.y)
 	
 	if _direction:
 		velocity.x = _direction.x * _current_speed
@@ -87,3 +97,17 @@ func _jump() -> void:
 		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = _jump_speed
+		
+		
+func _update_camera() -> void:
+	if Input.is_action_just_pressed("toggle_camera"):
+		if current_camera == _fpc:
+			_fpc.update_camera_state(false)
+			_tpc.update_camera_state(true)
+			current_camera = _tpc
+			return
+			
+		if current_camera == _tpc:
+			_tpc.update_camera_state(false)
+			_fpc.update_camera_state(true)
+			current_camera = _fpc

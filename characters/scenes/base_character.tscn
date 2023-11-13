@@ -1,22 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkx44l2vmuvhc"]
+[gd_scene load_steps=4 format=3 uid="uid://dkx44l2vmuvhc"]
 
 [ext_resource type="Script" path="res://characters/scripts/character_arm.gd" id="1_bhobu"]
 [ext_resource type="Script" path="res://characters/scripts/base_character.gd" id="1_xvsj8"]
+[ext_resource type="Script" path="res://characters/scripts/first_person_camera.gd" id="3_q2hwq"]
 
-[node name="BaseCharacter" type="CharacterBody3D" node_paths=PackedStringArray("_spring_arm_offset")]
+[node name="BaseCharacter" type="CharacterBody3D" node_paths=PackedStringArray("_tpc", "_fpc")]
 script = ExtResource("1_xvsj8")
 _gravity = 30.0
-_spring_arm_offset = NodePath("SpringArmOffset")
+_tpc = NodePath("TPCamera")
+_fpc = NodePath("FPCamera")
 
-[node name="SpringArmOffset" type="Node3D" parent="." node_paths=PackedStringArray("_spring_arm")]
+[node name="TPCamera" type="Node3D" parent="." node_paths=PackedStringArray("_offset", "_camera", "_character")]
 script = ExtResource("1_bhobu")
-_spring_arm = NodePath("Arm3D")
+_camera_type = "tp"
+_is_enabled = true
+_offset = NodePath("Offset")
+_camera = NodePath("Offset/ThirdPersonCamera")
+_character = NodePath("..")
 
-[node name="Arm3D" type="SpringArm3D" parent="SpringArmOffset"]
+[node name="Offset" type="SpringArm3D" parent="TPCamera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 spring_length = 3.0
 
-[node name="ThirdPersonCamera" type="Camera3D" parent="SpringArmOffset/Arm3D"]
-current = true
+[node name="ThirdPersonCamera" type="Camera3D" parent="TPCamera/Offset"]
 
 [node name="Collision" type="CollisionShape3D" parent="."]
+
+[node name="FPCamera" type="Node3D" parent="." node_paths=PackedStringArray("_offset", "_camera", "_character")]
+script = ExtResource("3_q2hwq")
+_camera_height = 1.5
+_camera_type = "fp"
+_y_min_rotation = 75.0
+_y_max_rotation = -75.0
+_is_enabled = true
+_offset = NodePath("Offset")
+_camera = NodePath("Offset/FirstPersonCamera")
+_character = NodePath("..")
+
+[node name="Offset" type="Node3D" parent="FPCamera"]
+
+[node name="FirstPersonCamera" type="Camera3D" parent="FPCamera/Offset"]
+cull_mask = 1048573
+current = true

@@ -8,4 +8,9 @@ class_name BaseLevel
 @export var _character: BaseCharacter
 
 func _ready() -> void:
-	_character.scene_path = _scene_path
+	_character.reload_level.connect(_reload_level)
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	
+func _reload_level() -> void:
+	transition_screen.fade_in(_scene_path)
