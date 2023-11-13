@@ -1,6 +1,8 @@
 extends CharacterBody3D
 class_name BaseCharacter
 
+var scene_path: String = ""
+
 var _is_dead: bool = false
 
 var _jump_count: int = 0
@@ -31,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 	_body.animate(velocity)
 	
 	if not _is_dead and position.y < _fall_limit:
-		get_tree().reload_current_scene()
+		transition_screen.fade_in(scene_path)
 		_is_dead = true
 		
 	if is_on_floor():

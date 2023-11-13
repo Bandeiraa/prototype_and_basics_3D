@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cy3hxlpgqb037"]
+[gd_scene load_steps=22 format=3 uid="uid://cy3hxlpgqb037"]
 
 [ext_resource type="PackedScene" uid="uid://bdl7lwdjaevqu" path="res://gridmaps/floor.tscn" id="1_jbgo1"]
+[ext_resource type="Script" path="res://levels/scripts/base_level.gd" id="1_qgiin"]
 [ext_resource type="PackedScene" uid="uid://xbtwa0b7bbgq" path="res://gridmaps/wall.tscn" id="2_73x5n"]
 [ext_resource type="PackedScene" uid="uid://dbngq5182uet3" path="res://gridmaps/cube.tscn" id="3_8hfjo"]
 [ext_resource type="PackedScene" uid="uid://6jev7y8m46us" path="res://gridmaps/table.tscn" id="4_0q6w5"]
@@ -61,7 +62,9 @@ shader_parameter/distortNoise = SubResource("NoiseTexture2D_tiqyg")
 material = SubResource("ShaderMaterial_py56f")
 size = Vector2(400, 400)
 
-[node name="BaseLevel" type="Node3D"]
+[node name="BaseLevel" type="Node3D" node_paths=PackedStringArray("_character")]
+script = ExtResource("1_qgiin")
+_character = NodePath("Sophia")
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -184,6 +187,7 @@ environment = SubResource("Environment_0qmql")
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
 mesh = SubResource("PlaneMesh_pskms")
 
 [node name="Interface" parent="." instance=ExtResource("11_v1gg1")]

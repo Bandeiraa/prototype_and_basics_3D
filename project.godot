@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 game_data="*res://management/game_data.gd"
+transition_screen="*res://management/scenes/transition_screen.tscn"
 
 [input]
 
