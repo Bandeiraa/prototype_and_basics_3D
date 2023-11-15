@@ -13,4 +13,5 @@ func _ready() -> void:
 	
 	
 func _reload_level() -> void:
+	game_data.money = 0
 	transition_screen.fade_in(_scene_path)

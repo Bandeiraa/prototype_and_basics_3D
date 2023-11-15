@@ -4,5 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cr51a3gsuklks" path="res://prototypes/doors/door_a.tscn" id="2_o3lo3"]
 
 [node name="DoorA" instance=ExtResource("1_v1rgv")]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Door" parent="." index="0" instance=ExtResource("2_o3lo3")]

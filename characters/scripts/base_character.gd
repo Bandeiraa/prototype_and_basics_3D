@@ -115,7 +115,7 @@ func _spawn_projectile() -> void:
 	var _forward_dir: Vector3 = -_camera_transform.basis.z
 	
 	var _projectile = _PROJECTILE.instantiate()
-	get_tree().root.call_deferred("add_child", _projectile)
+	get_parent().call_deferred("add_child", _projectile)
 	await _projectile.ready
 	
 	_projectile.global_position = global_position + Vector3(0, 1.5, 0)

@@ -48,6 +48,7 @@ mesh = SubResource("ArrayMesh_lcne3")
 skeleton = NodePath("")
 
 [node name="Body" type="StaticBody3D" parent="."]
+collision_layer = 3
 
 [node name="Collision" type="CollisionShape3D" parent="Body"]
 shape = SubResource("ConcavePolygonShape3D_il1mp")
