@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="prototype_and_basics_3D"
+run/main_scene="res://levels/initial_screen.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 

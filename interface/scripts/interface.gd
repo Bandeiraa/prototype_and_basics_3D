@@ -3,7 +3,7 @@ class_name Interface
 
 @export_category("Objects")
 @export var _cans: Label
-@export var _coins: Label
+@export var _money: Label
 @export var _crosshair: Control
 
 func _ready() -> void:
@@ -12,10 +12,10 @@ func _ready() -> void:
 	
 func update_coins(_amount: float) -> void:
 	if _amount < 1.0:
-		_coins.text = "Coins: " + str(_amount) + "¢"
+		_money.text = "Money: " + str(_amount) + "¢"
 		return
 		
-	_coins.text = "Coins: " + str(_amount) + "$"
+	_money.text = "Money: " + str(_amount) + "$"
 	
 	
 func update_cans(_amount: float) -> void:
