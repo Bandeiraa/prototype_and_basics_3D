@@ -116,13 +116,16 @@ func _spawn_projectile() -> void:
 	
 	var _projectile = _PROJECTILE.instantiate()
 	get_tree().root.call_deferred("add_child", _projectile)
-	_projectile.global_transform = global_transform
+	await _projectile.ready
+	
+	_projectile.global_position = global_position + Vector3(0, 1.5, 0)
 	_projectile.linear_velocity = _forward_dir * 30.0
 	
 	
 func _update_camera() -> void:
 	if Input.is_action_just_pressed("toggle_camera"):
 		if current_camera == _fpc:
+			game_data.interface.update_crosshair_visibility(false)
 			_fpc.update_camera_state(false)
 			_tpc.update_camera_state(true)
 			current_camera = _tpc
@@ -130,6 +133,7 @@ func _update_camera() -> void:
 			return
 			
 		if current_camera == _tpc:
+			game_data.interface.update_crosshair_visibility(true)
 			_tpc.update_camera_state(false)
 			_fpc.update_camera_state(true)
 			current_camera = _fpc
