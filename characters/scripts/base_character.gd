@@ -1,12 +1,16 @@
 extends CharacterBody3D
 class_name BaseCharacter
 
+const _PROJECTILE: PackedScene = preload("res://projectiles/scenes/can_a.tscn")
+
 signal reload_level
 
 var offset: Node3D = null
 var current_camera: BaseCamera = null
 
 var _is_dead: bool = false
+var _can_shoot: bool = true
+
 var _jump_count: int = 0
 var _current_speed: float
 
@@ -38,6 +42,7 @@ func _physics_process(_delta: float) -> void:
 		
 	_jump()
 	_move()
+	_shoot()
 	_update_camera()
 	move_and_slide()
 	_body.animate(velocity)
@@ -99,15 +104,33 @@ func _jump() -> void:
 		velocity.y = _jump_speed
 		
 		
+func _shoot() -> void:
+	if Input.is_action_just_pressed("shoot") and _can_shoot:
+		_spawn_projectile()
+		
+		
+func _spawn_projectile() -> void:
+	var _camera: Camera3D = offset.get_child(0).get_child(0)
+	var _camera_transform: Transform3D = _camera.global_transform
+	var _forward_dir: Vector3 = -_camera_transform.basis.z
+	
+	var _projectile = _PROJECTILE.instantiate()
+	get_tree().root.call_deferred("add_child", _projectile)
+	_projectile.global_transform = global_transform
+	_projectile.linear_velocity = _forward_dir * 30.0
+	
+	
 func _update_camera() -> void:
 	if Input.is_action_just_pressed("toggle_camera"):
 		if current_camera == _fpc:
 			_fpc.update_camera_state(false)
 			_tpc.update_camera_state(true)
 			current_camera = _tpc
+			_can_shoot = false
 			return
 			
 		if current_camera == _tpc:
 			_tpc.update_camera_state(false)
 			_fpc.update_camera_state(true)
 			current_camera = _fpc
+			_can_shoot = true

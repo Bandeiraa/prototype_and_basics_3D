@@ -5,6 +5,8 @@
 [ext_resource type="Script" path="res://characters/scripts/first_person_camera.gd" id="3_q2hwq"]
 
 [node name="BaseCharacter" type="CharacterBody3D" node_paths=PackedStringArray("_tpc", "_fpc")]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_xvsj8")
 _gravity = 30.0
 _tpc = NodePath("TPCamera")
@@ -12,8 +14,6 @@ _fpc = NodePath("FPCamera")
 
 [node name="TPCamera" type="Node3D" parent="." node_paths=PackedStringArray("_offset", "_camera", "_character")]
 script = ExtResource("1_bhobu")
-_camera_type = "tp"
-_is_enabled = true
 _offset = NodePath("Offset")
 _camera = NodePath("Offset/ThirdPersonCamera")
 _character = NodePath("..")
@@ -29,10 +29,8 @@ spring_length = 3.0
 [node name="FPCamera" type="Node3D" parent="." node_paths=PackedStringArray("_offset", "_camera", "_character")]
 script = ExtResource("3_q2hwq")
 _camera_height = 1.5
-_camera_type = "fp"
 _y_min_rotation = 75.0
 _y_max_rotation = -75.0
-_is_enabled = true
 _offset = NodePath("Offset")
 _camera = NodePath("Offset/FirstPersonCamera")
 _character = NodePath("..")
