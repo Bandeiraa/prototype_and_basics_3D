@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name Interface
 
 @export_category("Objects")
+@export var _cans: Label
 @export var _coins: Label
 @export var _crosshair: Control
 
@@ -15,6 +16,10 @@ func update_coins(_amount: float) -> void:
 		return
 		
 	_coins.text = "Coins: " + str(_amount) + "$"
+	
+	
+func update_cans(_amount: float) -> void:
+	_cans.text = "Cans: " + str(_amount)
 	
 	
 func update_crosshair_visibility(_state: bool) -> void:

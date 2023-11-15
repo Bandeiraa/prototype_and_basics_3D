@@ -105,7 +105,12 @@ func _jump() -> void:
 		
 		
 func _shoot() -> void:
-	if Input.is_action_just_pressed("shoot") and _can_shoot:
+	if (
+		Input.is_action_just_pressed("shoot") and 
+		game_data.cans > 0 and
+		_can_shoot
+	):
+		game_data.update_can(-1)
 		_spawn_projectile()
 		
 		

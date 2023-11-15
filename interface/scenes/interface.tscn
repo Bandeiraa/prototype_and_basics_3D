@@ -12,8 +12,9 @@ outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 0.6)
 shadow_offset = Vector2(4, 4)
 
-[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("_coins", "_crosshair")]
+[node name="Interface" type="CanvasLayer" node_paths=PackedStringArray("_cans", "_coins", "_crosshair")]
 script = ExtResource("1_e0aay")
+_cans = NodePath("Cans")
 _coins = NodePath("Coins")
 _crosshair = NodePath("Crosshair")
 
@@ -23,6 +24,14 @@ offset_top = 16.0
 offset_right = 131.0
 offset_bottom = 47.0
 text = "Coins: 0¢"
+label_settings = SubResource("LabelSettings_5gkgc")
+
+[node name="Cans" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 137.0
+offset_bottom = 87.0
+text = "Cans: 0"
 label_settings = SubResource("LabelSettings_5gkgc")
 
 [node name="Crosshair" type="Control" parent="."]
