@@ -1,15 +1,20 @@
 extends Node3D
 class_name BaseLevel
 
+var _character: BaseCharacter = null
+
 @export_category("Variables")
 @export var _scene_path: String
 
-@export_category("Objects")
-@export var _character: BaseCharacter
-
 func _ready() -> void:
-	_character.reload_level.connect(_reload_level)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	_spawn_player()
+	
+	
+func _spawn_player() -> void:
+	_character = load(game_data.character_scene_path).instantiate()
+	_character.reload_level.connect(_reload_level)
+	add_child(_character)
 	
 	
 func _reload_level() -> void:

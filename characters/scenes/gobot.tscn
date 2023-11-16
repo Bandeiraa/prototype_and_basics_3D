@@ -2030,14 +2030,11 @@ height = 1.0
 radius = 0.4
 
 [node name="Gobot" node_paths=PackedStringArray("_body") instance=ExtResource("1_1f0df")]
+_gravity = 9.8
+_run_speed = 4.5
+_walk_speed = 3.25
+_arm_strength = 30.0
 _body = NodePath("Gobot")
-
-[node name="SpringArmOffset" parent="." index="0"]
-_camera_height = 2.25
-_spring_length = 4.0
-
-[node name="Arm3D" parent="SpringArmOffset" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="Gobot" type="Node3D" parent="." index="1" node_paths=PackedStringArray("_character", "_animation")]
 script = ExtResource("2_yk6km")
@@ -2225,6 +2222,7 @@ bones/24/rotation = Quaternion(-0.100298, 4.3491e-08, 4.38419e-09, 0.994957)
 bones/24/scale = Vector3(1, 1, 1)
 
 [node name="Gobot" type="MeshInstance3D" parent="Gobot/Armature/Skeleton3D" index="0"]
+layers = 2
 mesh = SubResource("ArrayMesh_qqlmj")
 skin = SubResource("Skin_njg6e")
 

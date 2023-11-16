@@ -24,6 +24,7 @@ var _current_speed: float
 @export var _run_speed: float = 3.5
 @export var _walk_speed: float = 2.0
 @export var _jump_speed: float = 7.0
+@export var _arm_strength: float = 0.0
 
 @export_category("Objects")
 @export var _body: CharacterBody
@@ -124,7 +125,7 @@ func _spawn_projectile() -> void:
 	await _projectile.ready
 	
 	_projectile.global_position = global_position + Vector3(0, 1.5, 0)
-	_projectile.linear_velocity = _forward_dir * 30.0
+	_projectile.linear_velocity = _forward_dir * _arm_strength
 	
 	
 func _update_camera() -> void:

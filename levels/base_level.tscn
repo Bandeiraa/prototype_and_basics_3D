@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy3hxlpgqb037"]
+[gd_scene load_steps=13 format=3 uid="uid://cy3hxlpgqb037"]
 
 [ext_resource type="PackedScene" uid="uid://bdl7lwdjaevqu" path="res://gridmaps/floor.tscn" id="1_jbgo1"]
 [ext_resource type="Script" path="res://levels/scripts/base_level.gd" id="1_qgiin"]
@@ -9,14 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://d3dyuu7v727ic" path="res://gridmaps/pillar.tscn" id="6_x35hb"]
 [ext_resource type="PackedScene" uid="uid://dasldisl2rfvv" path="res://gridmaps/slope.tscn" id="7_jv81a"]
 [ext_resource type="PackedScene" uid="uid://cvlchjedw5vhg" path="res://gridmaps/stair.tscn" id="8_7cn5y"]
-[ext_resource type="PackedScene" uid="uid://cue3r2vxiimqg" path="res://characters/scenes/sophia.tscn" id="9_k6ssq"]
 [ext_resource type="PackedScene" uid="uid://ca4nuhrtxtmpi" path="res://environment/scenes/post_processing.tscn" id="10_cqset"]
 [ext_resource type="PackedScene" uid="uid://f6jj2qwwfq0l" path="res://environment/scenes/water.tscn" id="11_oa8uw"]
 [ext_resource type="PackedScene" uid="uid://b08peypiubk33" path="res://interface/scenes/interface.tscn" id="11_v1gg1"]
 
-[node name="BaseLevel" type="Node3D" node_paths=PackedStringArray("_character")]
+[node name="BaseLevel" type="Node3D"]
 script = ExtResource("1_qgiin")
-_character = NodePath("Sophia")
 
 [node name="Lights" type="Node3D" parent="."]
 
@@ -166,8 +164,6 @@ collision_layer = 3
 [node name="Interactables" type="Node3D" parent="."]
 
 [node name="PostProcessing" parent="." instance=ExtResource("10_cqset")]
-
-[node name="Sophia" parent="." instance=ExtResource("9_k6ssq")]
 
 [node name="Water" parent="." instance=ExtResource("11_oa8uw")]
 

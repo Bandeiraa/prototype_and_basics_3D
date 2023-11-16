@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="TransitionScreen" type="CanvasLayer" node_paths=PackedStringArray("_animation")]
+process_mode = 3
 layer = 2
 script = ExtResource("1_bsu82")
 _animation = NodePath("Animation")
