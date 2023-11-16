@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnd6wkflbirkk"]
+[gd_scene load_steps=11 format=3 uid="uid://dnd6wkflbirkk"]
 
 [ext_resource type="PackedScene" uid="uid://b55fdjcvtgka5" path="res://interactables/scenes/base_target.tscn" id="1_uqvxj"]
 [ext_resource type="Texture2D" uid="uid://ca4emqmefav80" path="res://models/prototype/target/prototypebits_texture.png" id="2_sqish"]
@@ -47,8 +47,46 @@ shadow_mesh = SubResource("ArrayMesh_4ls4f")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0vupi"]
 points = PackedVector3Array(-9.7841e-05, 0.5, 0.161179, -9.7841e-05, 0.46946, 7.57251e-10, -0.234828, 0.406519, 7.57251e-10, -0.250098, 0.432948, 0.161179, -0.228074, 0.394969, 0.19998, -9.7841e-05, 0.456049, 0.19998, 0.227976, 0.394969, 0.19998, 0.249902, 0.432948, 0.161179, 0.23473, 0.406519, 7.57251e-10, -0.406617, 0.23473, 7.57251e-10, -0.433046, 0.249902, 0.161179, -0.395067, 0.227976, 0.19998, 0.394969, 0.227976, 0.19998, 0.432948, 0.25, 0.161179, 0.406519, 0.23473, 7.57251e-10, -0.469558, 0, 7.57251e-10, -0.5, 0, 0.161179, -0.456147, -9.78708e-05, 0.19998, 0.456049, -9.78708e-05, 0.19998, 0.499902, -9.78708e-05, 0.161179, 0.46946, 0, 7.57251e-10, -0.406617, -0.234828, 7.57251e-10, -0.433046, -0.25, 0.161179, -0.395067, -0.228074, 0.19998, 0.394969, -0.228074, 0.19998, 0.432948, -0.250098, 0.161179, 0.406519, -0.234828, 7.57251e-10, -0.234828, -0.406617, 7.57251e-10, -0.250098, -0.433046, 0.161179, -0.228074, -0.395067, 0.19998, 0.227976, -0.395067, 0.19998, 0.25, -0.433046, 0.161179, 0.23473, -0.406617, 7.57251e-10, -9.7841e-05, -0.469558, 7.57251e-10, -9.7841e-05, -0.5, 0.161179, -9.7841e-05, -0.456147, 0.19998)
 
-[node name="SmallTarget" instance=ExtResource("1_uqvxj")]
+[sub_resource type="Animation" id="Animation_xfrqk"]
+resource_name = "rotate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_camyu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fivxp"]
+_data = {
+"RESET": SubResource("Animation_camyu"),
+"rotate": SubResource("Animation_xfrqk")
+}
+
+[node name="SmallTarget" node_paths=PackedStringArray("_animation") instance=ExtResource("1_uqvxj")]
 _score = 1
+_animation = NodePath("Animation")
 
 [node name="Collision" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.2)
@@ -62,3 +100,8 @@ skeleton = NodePath("")
 
 [node name="Collision" type="CollisionShape3D" parent="Body" index="0"]
 shape = SubResource("ConvexPolygonShape3D_0vupi")
+
+[node name="Animation" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_fivxp")
+}

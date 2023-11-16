@@ -59,6 +59,7 @@ func _physics_process(_delta: float) -> void:
 			"MainMenu":
 				_can_click = false
 				game_data.cans = 0
+				game_data.score = 0
 				game_data.money = 0
 				transition_screen.fade_in("res://levels/initial_screen.tscn")
 				
