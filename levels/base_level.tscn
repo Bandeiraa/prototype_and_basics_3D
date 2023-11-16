@@ -18,6 +18,8 @@ script = ExtResource("1_qgiin")
 
 [node name="Lights" type="Node3D" parent="."]
 
+[node name="Targets" type="Node3D" parent="."]
+
 [node name="Gridmaps" type="Node3D" parent="."]
 
 [node name="L0" type="Node3D" parent="Gridmaps"]

@@ -1,6 +1,8 @@
 extends Node
 class_name GameData
 
+var score: int
+
 var cans: float
 var money: float
 
@@ -39,3 +41,8 @@ func update_money(_amount: float) -> void:
 func update_can(_amount: float) -> void:
 	cans += _amount
 	interface.update_cans(cans)
+	
+	
+func update_score(_value: int) -> void:
+	score += _value
+	interface.update_score(score)

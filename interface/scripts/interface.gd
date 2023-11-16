@@ -9,6 +9,7 @@ var _can_interact: bool = false
 @export_category("Objects")
 @export var _cans: Label
 @export var _money: Label
+@export var _score: Label
 @export var _crosshair: Control
 @export var _pause_container: Control
 @export var _buttons_container: VBoxContainer
@@ -42,6 +43,10 @@ func update_coins(_amount: float) -> void:
 	
 func update_cans(_amount: float) -> void:
 	_cans.text = "Cans: " + str(_amount)
+	
+	
+func update_score(_value: int) -> void:
+	_score.text = "Score: " + str(_value)
 	
 	
 func update_crosshair_visibility(_state: bool) -> void:
