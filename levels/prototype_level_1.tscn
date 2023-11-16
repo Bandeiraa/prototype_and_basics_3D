@@ -50,5 +50,5 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0
 
 [node name="DoorA" parent="Interactables/DoorPivot" index="0" instance=ExtResource("5_pju40")]
 
-[node name="Water" parent="." index="6"]
+[node name="Water" parent="." index="5"]
 visible = true
